@@ -1,0 +1,216 @@
+<template>
+  <div :class="{fullscreen:fullscreen}" class="tinymce-container editor-container">
+    <textarea :id="tinymceId" class="tinymce-textarea"/>
+  </div>
+</template>
+
+<script>
+import plugins from './plugins'
+import toolbar from './toolbar'
+import vi from './vi_VN'
+import { mapState } from 'vuex';
+
+export default {
+  name: 'Tinymce',
+  props: {
+    id: {
+      type: String,
+      default: 'vue-tinymce-' + +new Date()
+    },
+    value: {
+      type: String,
+      default: ''
+    },
+    toolbar: {
+      type: Array,
+      required: false,
+      default() {
+        return []
+      }
+    },
+    menubar: {
+      type: String,
+      default: 'edit insert view tools format table'
+    },
+    height: {
+      type: Number,
+      required: false,
+      default: 360
+    }
+  },
+  data() {
+    return {
+      hasChange: false,
+      hasInit: false,
+      tinymceId: this.id,
+      fullscreen: false,
+      languageTypeList: {
+        'en': 'en'
+      }
+    }
+  },
+  computed: {
+    ...mapState(['locale']),
+    language() {
+      return this.languageTypeList['en']
+    }
+  },
+  watch: {
+    value(val) {
+      if (!this.hasChange && this.hasInit) {
+        this.$nextTick(() =>
+          window.tinymce.get(this.tinymceId).setContent(val || ''))
+      }
+    },
+    language() {
+      this.destroyTinymce();
+      this.$nextTick(() => this.initTinymce())
+    }
+  },
+  mounted() {
+    this.initTinymce()
+  },
+  activated() {
+    this.initTinymce()
+  },
+  deactivated() {
+    this.destroyTinymce()
+  },
+  destroyed() {
+    this.destroyTinymce()
+  },
+  methods: {
+    initTinymce() {
+      const _this = this;
+      window.tinymce.addI18n('vi',vi),
+      window.tinymce.init({
+        language: this.locale,
+        selector: `#${this.tinymceId}`,
+        min_height: this.height,
+        max_height: 600,
+        body_class: 'panel-body ',
+        object_resizing: false,
+        toolbar: this.toolbar.length > 0 ? this.toolbar : toolbar,
+        menubar: this.menubar,
+        plugins: plugins,
+        end_container_on_empty_block: true,
+        powerpaste_word_import: 'clean',
+        code_dialog_height: 450,
+        code_dialog_width: 1000,
+        advlist_bullet_styles: 'square',
+        advlist_number_styles: 'default',
+        default_link_target: '_blank',
+        link_title: false,
+        nonbreaking_force_tab: true,
+        convert_urls: false,
+        image_uploadtab: false,
+        init_instance_callback: editor => {
+          if (_this.value) {
+            editor.setContent(_this.value)
+          }
+          _this.hasInit = true;
+          editor.on('NodeChange Change KeyUp SetContent', () => {
+            this.hasChange = true;
+            this.$emit('input', editor.getContent())
+          })
+        },
+        entity_encoding: 'raw',
+        setup(editor) {
+          editor.on('FullscreenStateChanged', (e) => {
+            _this.fullscreen = e.state
+          })
+        },
+        file_picker_callback: function(callback, value, meta) {
+          window.setFileToElement = function(fileurl, filepath) {
+            if (meta.filetype == 'image') {
+              callback(filepath, {alt: ''})
+            }
+            else {
+              callback(filepath, {text: ''})
+            }
+            _this.$store.dispatch('file/closeFileManager');
+            jQuery('#modal-site-file').modal('hide')
+          };
+          if (meta.filetype == 'image') {
+            _this.$store.dispatch('file/setType','Images')
+          }
+          else {
+            _this.$store.dispatch('file/setType','Files')
+          }
+          _this.$store.dispatch('file/setFieldName','setFileToElement');
+          _this.$store.dispatch('file/openFileManager');
+          jQuery('#modal-site-file').modal('show')
+        },
+        // 整合七牛上传
+        // images_dataimg_filter(img) {
+        //   setTimeout(() => {
+        //     const $image = $(img);
+        //     $image.removeAttr('width');
+        //     $image.removeAttr('height');
+        //     if ($image[0].height && $image[0].width) {
+        //       $image.attr('data-wscntype', 'image');
+        //       $image.attr('data-wscnh', $image[0].height);
+        //       $image.attr('data-wscnw', $image[0].width);
+        //       $image.addClass('wscnph');
+        //     }
+        //   }, 0);
+        //   return img
+        // },
+        paste_data_images: false,
+        images_upload_handler(blobInfo, success, failure, progress) {
+          window.setFileToElement = function(fileurl, filepath) {
+            success(filepath, {alt: ''});
+            _this.$store.dispatch('file/closeFileManager')
+          };
+          _this.$store.dispatch('file/setType','Images');
+          _this.$store.dispatch('file/setFieldName','setFileToElement');
+          _this.$store.dispatch('file/openFileManager')
+        }
+      })
+    },
+    destroyTinymce() {
+      if (window.tinymce.get(this.tinymceId)) {
+        window.tinymce.get(this.tinymceId).destroy()
+      }
+    },
+    setContent(value) {
+      window.tinymce.get(this.tinymceId).setContent(value)
+    },
+    getContent() {
+      window.tinymce.get(this.tinymceId).getContent()
+    },
+    imageSuccessCBK(arr) {
+      const _this = this;
+      arr.forEach(v => {
+        window.tinymce.get(_this.tinymceId).insertContent(`<img class="wscnph" src="${v.url}" >`)
+      })
+    }
+  }
+}
+</script>
+
+<style scoped>
+.tinymce-container {
+  position: relative;
+}
+.tinymce-container>>>.mce-fullscreen {
+  z-index: 10000;
+}
+.tinymce-textarea {
+  visibility: hidden;
+  z-index: -1;
+}
+.editor-custom-btn-container {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  /*z-index: 2005;*/
+}
+.fullscreen .editor-custom-btn-container {
+  z-index: 10000;
+  position: fixed;
+}
+.editor-upload-btn {
+  display: inline-block;
+}
+</style>

@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0c976c"],{"58f9":function(t,e,n){"use strict";n.r(e);var c=function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("detail",{attrs:{"is-edit":!0}})},s=[],a=n("26cc"),l={name:"PostsEdit",components:{Detail:a["default"]}},i=l,u=n("2877"),o=Object(u["a"])(i,c,s,!1,null,null,null);e["default"]=o.exports}}]);
+//# sourceMappingURL=chunk-2d0c976c.bfa5dd0f.js.map

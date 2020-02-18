@@ -1,0 +1,62 @@
+{
+  "crtNo" : true,
+  "routePrefix": "posts",
+  "buttons": [
+    {
+      "type": "global",
+      "icon": "plus",
+      "class": null,
+      "routeSuffix" : "create",
+      "event" : "create",
+      "action" : "router",
+      "label" : "Create"
+    },
+    {
+      "type": "row",
+      "icon": "trash-alt",
+      "class": "is-row-button",
+      "routeSuffix" : "destroy",
+      "event": "destroy",
+      "action" : "ajax",
+      "method" : "DELETE",
+      "confirmation" : true,
+      "message" : "Bạn có chắc muốn xóa bản ghi này?",
+      "postEvent" : "destroyed"
+    },
+    {
+      "type": "row",
+      "icon": "pencil-alt",
+      "class": "is-naked",
+      "event": "edit",
+      "routeSuffix" : "edit",
+      "action": "router"
+    }
+  ],
+  "columns": [
+    {
+      "label": "Author",
+      "name": "tacgia",
+      "data": "tacgia",
+      "meta": [
+        "sortable"
+      ]
+    },
+    {
+      "label": "Title",
+      "name": "title",
+      "data": "title",
+      "meta": [
+        "searchable",
+        "sortable"
+      ]
+    },
+    {
+      "label": "Date Created",
+      "name": "created_at",
+      "data": "created_at",
+      "meta": [
+        "sortable"
+      ]
+    }
+  ]
+}

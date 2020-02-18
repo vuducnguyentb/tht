@@ -1,0 +1,68 @@
+@media(min-width: 768px){
+    .wrapper .header .logo .l-black{
+        width: 61px; height: 51px; margin-top: -2px; margin-left: 20px;
+    }
+    .wrapper .header .logo .l-black{
+        width: 92px; margin-top: -3px;
+    }
+    #service .row .col-sm-12 ul li img{
+        height: 213px;
+        width: 360px;
+    }
+   #sec-img{
+       height: 250px;object-fit: cover
+   }
+    #work .container-fluid .container-grid .nf-item .item-box img{
+       width:100%;height: 200px;
+    }
+    #about .container .row .col-md-6 img{
+        height: 407px;
+    }
+    #blog .container .row .blog-post img{
+        width: 359px; height: 229px;
+    }
+    #blog .container .row .blog-post .post-media .owl-carousel .item img{
+        height: 201px;
+    }
+    .footer .container .row .col-md-4 .newsletter .text img{width: 200px;}
+    .footer .container .row .col-md-4 .newsletter .text p{text-align: center; width: 200px;}
+
+   
+    
+}
+@media(max-width: 480px){
+    .header .container .logo .l-black {
+        width: 70px;
+        margin-top: -13px;
+    }
+    #blog .container .col-sm-6 h2{font-size: 16px;}
+    #blog .container .col-sm-6 p{font-size: 14px;}
+    #about .container .col-sm-5 h2{font-size: 16px;}
+    #about .container .col-sm-7 p{font-size: 14px;}
+    #work .container .col-sm-5 h2{font-size: 16px;}
+    #work .container .col-sm-7 p{font-size: 14px;}
+    #service .fadeInBottom .col-sm-5 h2{font-size: 16px;}
+    #service .fadeInBottom .col-sm-7 p{font-size: 14px;}
+    .footer .container .row .col-md-4 .newsletter .text img{width: 100%; object-fit: cover;}
+    .footer .container .row .col-md-4 .newsletter .text p{text-align: center;}
+    #service .fadeInBottom .row .col-sm-12 ul li .about-block .text-box .box-title h3{font-size: 15px;}
+    .fadeIn .container .row .col-lg-12 h2{font-size: 16px;}
+    #service .wow .col-sm-12 .project-col-3 .about-block .text-box .text-content p{
+        display: none;
+    }
+    #service .row .col-sm-12 .project-col-3 li{
+        display: block;
+        width: 100%;
+    }
+}
+
+html{
+    overflow-x: hidden;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#tit{line-height: 1.5}
+
+.tp-rightarrow{
+    right: 15px !important;
+}

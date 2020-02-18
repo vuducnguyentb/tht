@@ -1,0 +1,65 @@
+{
+    "crtNo" : true,
+    "routePrefix": "customercontacts",
+    "buttons": [
+      {
+        "type": "row",
+        "icon": "trash-alt",
+        "class": "is-row-button",
+        "routeSuffix" : "destroy",
+        "event": "destroy",
+        "action" : "ajax",
+        "method" : "DELETE",
+        "confirmation" : true,
+        "message" : "Are you sure you want to delete this record?",
+        "postEvent" : "destroyed"
+      },
+        {
+            "type": "row",
+            "icon": "pencil-alt",
+            "class": "is-naked",
+            "event": "edit",
+            "routeSuffix" : "edit",
+            "action": "router"
+        }
+    ],
+    "columns": [
+        {
+            "label": "Customer's name",
+            "name": "full_name",
+            "data": "customer_contacts.full_name",
+            "meta": [
+              "sortable",
+              "searchable"
+            ]
+      },
+      {
+        "label": "Email",
+        "name": "email",
+        "data": "customer_contacts.email",
+        "meta": [
+          "sortable",
+          "searchable"
+        ]
+      },
+      {
+        "label": "Phone number",
+        "name": "phone",
+        "data": "customer_contacts.phone",
+        "meta": [
+          "searchable",
+          "sortable"
+        ]
+      },
+      {
+        "label": "Date Created",
+        "name": "created_at",
+        "data": "customer_contacts.created_at",
+        "meta": [
+          "sortable",
+          "date",
+          "sort:DESC"
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,62 @@
+{
+    "crtNo": true,
+    "routePrefix": "settings",
+    "buttons": [
+      {
+        "type": "global",
+        "icon": "plus",
+        "class": null,
+        "routeSuffix" : "create",
+        "event" : "create",
+        "action" : "router",
+        "label" : "Create"
+      },
+      {
+        "type": "row",
+        "icon": "trash-alt",
+        "class": "is-row-button",
+        "routeSuffix" : "destroy",
+        "event": "destroy",
+        "action" : "ajax",
+        "method" : "DELETE",
+        "confirmation" : true,
+        "message" : "Are you sure you want to delete this record?",
+        "postEvent" : "destroyed"
+      },
+      {
+        "type": "row",
+        "icon": "pencil-alt",
+        "class": "is-naked",
+        "event": "edit",
+        "routeSuffix" : "edit",
+        "action": "router"
+      }
+    ],
+    "columns": [
+      {
+        "label": "Key",
+        "name": "key",
+        "data": "settings.key",
+        "meta": [
+          "searchable",
+          "sortable"
+        ]
+      },{
+        "label": "Name",
+        "name": "name",
+        "data": "settings.name",
+        "meta": [
+          "searchable",
+          "sortable"
+        ]
+      },{
+        "label": "Value",
+        "name": "value",
+        "data": "settings.value",
+        "meta": [
+          "searchable",
+          "sortable"
+        ]
+      }
+    ]
+  }

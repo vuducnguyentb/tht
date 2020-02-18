@@ -1,0 +1,48 @@
+{
+    "crtNo" : true,
+    "routePrefix": "subscribers",
+    "buttons": [
+        {
+            "type": "row",
+            "icon": "trash-alt",
+            "class": "is-row-button",
+            "routeSuffix" : "destroy",
+            "event": "destroy",
+            "action" : "ajax",
+            "method" : "DELETE",
+            "confirmation" : true,
+            "message" : "Are you sure you want to delete this record?",
+            "postEvent" : "destroyed"
+          }
+    ],
+    "columns": [
+        {
+            "label": "Email",
+            "name": "email",
+            "data": "email",
+            "meta": [
+                "searchable",
+                "sortable"
+            ]
+        },   
+        {
+            "label": "Name",
+            "name": "name",
+            "data": "name",
+            "meta": [
+                "sortable",
+                "searchable"
+            ]
+        },
+        {
+            "label": "Date Created",
+            "name": "created_at",
+            "data": "created_at",
+            "meta": [
+                "sortable",
+                "date",
+                "sort:DESC"
+            ]
+        }
+    ]
+}

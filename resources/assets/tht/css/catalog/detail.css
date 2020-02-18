@@ -1,0 +1,64 @@
+/*css trang detail catalog*/
+.item-title {
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.item-mask {
+    opacity: 1!important;
+    visibility: visible !important;
+}
+h5.white {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+span.download-catalog {
+    font-size: 20px;
+    color: #0E76A8;
+}
+i.fa.fa-download.text-danger {
+    font-size: 20px;
+}
+img.img-item-catalog {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+@media(min-width:768px){
+    #client-logos .container .row .col-lg-12 h2{
+        margin-top: 0 !important;
+    }
+}
+@media(max-width: 480px){
+    .pd-25 .container .row .col-lg-12 .catalog-info h2{
+        font-size: 18px;
+    }
+    .pd-25 .container .row .col-lg-12 .catalog-info .download .download-catalog{
+        font-size: 15px;
+    }
+    .pb-60 .container h2{
+        font-size: 18px;
+    }
+    #client-logos .container .row .col-lg-12 h2{
+        font-size: 18px;
+    }
+    #client-logos .container .row .col-lg-12{
+        margin-top: -35px;
+    }
+    .inner-intro {
+        display: none;
+    }
+    .pd-25{
+        padding-top: 50px;
+    }
+    .a2a_kit {
+        z-index: 90 !important;
+    }
+    .navigation .open{
+        z-index: 100;
+    }
+}

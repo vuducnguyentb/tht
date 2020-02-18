@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0d607e"],{"718f":function(t,e,n){"use strict";n.r(e);var a=function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("detail",{attrs:{"is-edit":!0}})},c=[],l=n("dca4"),s={name:"ProductsEdit",components:{Detail:l["default"]}},u=s,d=n("2877"),i=Object(d["a"])(u,a,c,!1,null,null,null);e["default"]=i.exports}}]);
+//# sourceMappingURL=chunk-2d0d607e.78b398e0.js.map

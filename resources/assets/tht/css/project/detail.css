@@ -1,0 +1,115 @@
+.modal{
+    z-index: 3000 !important;
+    top:50% ;
+    left: 50% ;
+    bottom: auto;
+    transform: translate(-50%,-50%);
+}
+#shop-item .content .text-center {
+    padding: 7px  !important;
+}
+.img-project{
+    cursor: pointer;
+ height: 100px;
+}
+.owl-carousel img{
+
+}
+#shop-item .content .text-center .item-box {
+    margin-bottom: 0px;
+    padding: 0px 6px;
+    border: none;
+}
+.img{
+    padding-top: 0px !important;
+}
+.ptb{
+    padding-bottom: 0px !important;
+}
+.ptb .content .row .col-lg-3 .sidebar-widget ul li img{
+    height: 60px;
+    width: 100%;
+    object-fit: cover;
+}
+@media(max-width: 768px){
+    .ptb .content .row .col-lg-9 .blog-post .post-header h2{
+        font-size: 20px;
+        text-align: center;
+    }
+    .inner-intro {display: none}
+    .blog-post .post-media img {
+        width: 100%;
+    }
+}
+@media(max-width: 480px){
+    .ptb .content .row .col-lg-9 .fb-comments{
+        width: 100%;
+    }
+    .ptb .content .row .col-lg-9 .blog-post .post-media img{
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.ptb .content .row .col-lg-9 .blog-post .post-entry p{
+    text-align: justify;
+}
+@media(min-width:768px){
+    #client-logos .container .row .col-lg-12 h2{
+        margin-top: 0 !important;
+    }
+    .ptb .content .row .col-lg-9 .blog-post .post-media img{
+        height: 500px;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+}
+#client-logos {
+    height: 250px;
+}
+@media(max-width: 480px){
+    .a2a_kit.a2a_kit_size_32.a2a_floating_style.a2a_vertical_style {
+        display: none;
+    }
+    .inner-intro {
+        display: none;
+    }
+    .pd-25{
+        padding-top: 50px;
+    }
+    .a2a_kit {
+        z-index: 90 !important;
+    }
+    .navigation .open{
+        z-index: 100;
+    }
+    .ptb-sm-80{
+        padding-top: 80px;
+    }
+}
+#shop-item .content .owl-carousel .item-box{
+    padding-top: 0px 5px;
+}
+.modal{
+    padding-top: 100px;
+}
+.modal-body img{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    object-fit: cover;
+
+}
+.close {
+    color: rgb(37, 32, 32);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }

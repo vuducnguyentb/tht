@@ -1,0 +1,26 @@
+<?php
+return[
+    'product_title'=>'Product',
+    'product_update'=>'Products are being updated!',
+    'product_all'=>'All',
+    'product_notification'=>'No results found with',
+    'product_search'=>'Search',
+    'product_search_message'=>'Find',
+    'product_have_message'=>'have',
+    'product_news'=>'Product new',
+    'product_btn_getmore'=>'Get more',
+    'product_company'=>'THT - Viet Nam',
+    'product_categories'=>'Category',
+    'product_share'=>'Share',
+    'product_result'=>'result',
+    'product_description'=>'Description',
+    'product_info'=>'Technical data',
+    'product_catalog'=>'Catalog',
+    'product_name'=>'File name',
+    'product_download'=>'Download',
+    'product_tutorial'=>'Tutorial',
+    'product_same_types'=>'Products of the same type',
+    'product_noti'=>'Notification !',
+    'product_noti_catalog'=>'Documents for this product are currently being updated.',
+
+];
